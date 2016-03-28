@@ -15,9 +15,12 @@ namespace Gabriel.MenuExample
     {
         public List<Department> ListTc;
         private readonly List<Department> _tempList = new List<Department>();
+        //单位个数
+        private readonly int _departmentCount;
         public DepartmentHelper(List<Department> listTc)
         {
             ListTc = listTc;
+            _departmentCount = listTc.Count;
         }
         #region 创建树形结构目录
         /// <summary>
@@ -37,6 +40,7 @@ namespace Gabriel.MenuExample
         private void SortMenu(List<Department> list)
         {
             if (list == null) return;
+            if (_departmentCount == _tempList.Count) return;
             foreach (var item in list)
             {
                 if (_tempList.Contains(item))
